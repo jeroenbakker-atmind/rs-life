@@ -69,14 +69,11 @@ impl Builder for Grid {
     }
 
     fn glider(&mut self, position: Position, orientation: Orientation) -> &mut Self {
-        self
-        /*
         let multiplier = orientation.as_multiplier();
-        self.cell(position.offset(0, 0))
-        .cell(position.offset(1 * multiplier.x, 0))
-        .cell(position.offset(2 * multiplier.x, 0))
-        .cell(position.offset(2 * multiplier.x, 1 * multiplier.y))
-        .cell(position.offset(1 * multiplier.x, 2 * multiplier.y))
-        */
+        self.cell(position.offset(-1, -1) * multiplier)
+            .cell(position.offset(0, -1) * multiplier)
+            .cell(position.offset(1, -1) * multiplier)
+            .cell(position.offset(1, 0) * multiplier)
+            .cell(position.offset(0, 1) * multiplier)
     }
 }

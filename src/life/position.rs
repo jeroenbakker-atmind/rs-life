@@ -1,3 +1,5 @@
+use std::ops::Mul;
+
 #[derive(Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Position {
     x: isize,
@@ -24,5 +26,13 @@ impl Position {
             Position::new(self.x, self.y + 1),
             Position::new(self.x + 1, self.y + 1),
         ]
+    }
+}
+
+impl Mul<Position> for Position {
+    type Output = Position;
+
+    fn mul(self, rhs: Position) -> Position {
+        Position::new(self.x * rhs.x, self.y * rhs.y)
     }
 }

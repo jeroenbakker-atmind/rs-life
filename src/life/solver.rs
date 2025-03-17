@@ -9,7 +9,7 @@ pub fn next_generation(grid: &Grid) -> Grid {
         let num_living_neighbours = position
             .neighbours()
             .iter()
-            .filter(|pos| grid.is_alive(position))
+            .filter(|neighbor_position| grid.is_alive(**neighbor_position))
             .count();
         if apply_rules(is_alive, num_living_neighbours) {
             result.add_cell(position)
