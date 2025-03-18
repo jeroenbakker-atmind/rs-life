@@ -2,8 +2,8 @@ use std::ops::Mul;
 
 #[derive(Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Position {
-    x: isize,
-    y: isize,
+    pub x: isize,
+    pub y: isize,
 }
 
 impl Position {

@@ -20,4 +20,21 @@ impl Grid {
     pub fn is_alive(&self, position: Position) -> bool {
         self.alive_cells.contains(&position)
     }
+    pub fn print_grid(&self) {
+        let min_x = self.alive_cells.iter().map(|p| p.x).min().unwrap_or(0);
+        let max_x = self.alive_cells.iter().map(|p| p.x).max().unwrap_or(0);
+        let min_y = self.alive_cells.iter().map(|p| p.y).min().unwrap_or(0);
+        let max_y = self.alive_cells.iter().map(|p| p.y).max().unwrap_or(0);
+
+        for y in min_y..=max_y {
+            for x in min_x..=max_x {
+                if self.is_alive(Position::new(x, y)) {
+                    print!("X");
+                } else {
+                    print!(" ");
+                }
+            }
+            println!();
+        }
+    }
 }
