@@ -29,9 +29,9 @@ impl Grid {
         for y in min_y..=max_y {
             for x in min_x..=max_x {
                 if self.is_alive(Position::new(x, y)) {
-                    print!("X");
+                    print!("#");
                 } else {
-                    print!(" ");
+                    print!(".");
                 }
             }
             println!();

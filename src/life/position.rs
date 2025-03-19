@@ -1,4 +1,4 @@
-use std::ops::Mul;
+use std::ops::{Add, Mul};
 
 #[derive(Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Position {
@@ -34,5 +34,13 @@ impl Mul<Position> for Position {
 
     fn mul(self, rhs: Position) -> Position {
         Position::new(self.x * rhs.x, self.y * rhs.y)
+    }
+}
+
+impl Add<Position> for Position {
+    type Output = Position;
+
+    fn add(self, rhs: Position) -> Position {
+        Position::new(self.x + rhs.x, self.y + rhs.y)
     }
 }
